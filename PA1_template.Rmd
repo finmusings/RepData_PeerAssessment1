@@ -7,12 +7,27 @@ output:
 
 
 ## Loading and preprocessing the data
+csv file has been unzipped into assignment root directory
 
+Read into data table:
+```{r}
+fit_table<-read.csv("activity.csv")
+head(fit_table)
+```
 
 
 ## What is mean total number of steps taken per day?
 
+Read the instructions carefully!  
+I think I have what is requested now.  Add documentation!!
 
+
+```{r}
+total_steps <- by(fit_table$steps,fit_table$date,sum,na.rm=TRUE)
+hist(total_steps,breaks=20)
+mean(total_steps)
+median(total_steps)
+```
 
 ## What is the average daily activity pattern?
 
