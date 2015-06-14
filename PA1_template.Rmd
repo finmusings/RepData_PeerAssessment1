@@ -13,12 +13,11 @@ library("lattice")
 ```
 
 ## Loading and preprocessing the data
-csv file has been unzipped into assignment root directory
 
 Read into data table:
 
 ```{r}
-fit_table<-read.csv("activity.csv")
+fit_table<-read.csv(unz("activity.zip","activity.csv"))
 ```
 
 ## What is mean total number of steps taken per day?

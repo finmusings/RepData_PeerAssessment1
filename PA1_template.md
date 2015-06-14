@@ -1,26 +1,34 @@
----
-title: 'Reproducible Research: Peer Assessment 1'
-output:
-  html_document:
-    keep_md: yes
-    self_contained: no
-  pdf_document: default
----
+# Reproducible Research: Peer Assessment 1
 ## Set up the environment -- load libraries required
 
 ```r
 library("dplyr")
+```
+
+```
+## 
+## Attaching package: 'dplyr'
+## 
+## The following object is masked from 'package:stats':
+## 
+##     filter
+## 
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+```
+
+```r
 library("lattice")
 ```
 
 ## Loading and preprocessing the data
-csv file has been unzipped into assignment root directory
 
 Read into data table:
 
 
 ```r
-fit_table<-read.csv("activity.csv")
+fit_table<-read.csv(unz("activity.zip","activity.csv"))
 ```
 
 ## What is mean total number of steps taken per day?
@@ -41,7 +49,7 @@ hist(total_steps$x, breaks=20, main="Histogram of Average Steps per Day",
      xlab="Daily Step Total")
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-3-1.png) 
 
 ```r
 ## compute and display the arithmetic average of daily step totals
@@ -78,7 +86,7 @@ plot(steps_by_interval$Group.1, steps_by_interval$x,type="l", xlab="Interval",
      ylab="Avg Steps per Interval", main="Daily Activity Pattern")
 ```
 
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
 
 ```r
 ## compute maximum average steps by interval and output both number and interval
@@ -141,7 +149,7 @@ hist(total_steps2$x, breaks=20, main="Histogram of Average Steps per Day",
      xlab="Daily Step Total")
 ```
 
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-5-1.png) 
 
 ```r
 ## compute and display the arithmetic average of daily step totals
@@ -186,20 +194,11 @@ steps_by_interval2 <- aggregate(int1$steps,by=list(int1$wkfac, int1$interval),
                                 mean)
 ## use attach to so I can refer to just the elements of steps_by_interval2
 attach(steps_by_interval2)
-```
-
-```
-## The following objects are masked from steps_by_interval2 (pos = 4):
-## 
-##     Group.1, Group.2, x
-```
-
-```r
 ## panel plot using Lattice
 xyplot(x~Group.2|Group.1,type="l",xlab="Interval",
      ylab="Avg Steps per Interval", main="Daily Activity Pattern", 
      layout=c(1,2),scales=list(y=list(alternating=FALSE)))
 ```
 
-![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-6-1.png) 
 
