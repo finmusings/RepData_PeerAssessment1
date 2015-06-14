@@ -1,5 +1,13 @@
-# Reproducible Research: Peer Assessment 1
+---
+title: 'Reproducible Research: Peer Assessment 1'
+output:
+  html_document:
+    keep_md: yes
+    self_contained: no
+  pdf_document: default
+---
 ## Set up the environment -- load libraries required
+
 
 ```r
 library("dplyr")
@@ -49,7 +57,7 @@ hist(total_steps$x, breaks=20, main="Histogram of Average Steps per Day",
      xlab="Daily Step Total")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-3-1.png) 
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png) 
 
 ```r
 ## compute and display the arithmetic average of daily step totals
@@ -86,7 +94,7 @@ plot(steps_by_interval$Group.1, steps_by_interval$x,type="l", xlab="Interval",
      ylab="Avg Steps per Interval", main="Daily Activity Pattern")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png) 
 
 ```r
 ## compute maximum average steps by interval and output both number and interval
@@ -149,7 +157,7 @@ hist(total_steps2$x, breaks=20, main="Histogram of Average Steps per Day",
      xlab="Daily Step Total")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-5-1.png) 
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png) 
 
 ```r
 ## compute and display the arithmetic average of daily step totals
@@ -200,5 +208,5 @@ xyplot(x~Group.2|Group.1,type="l",xlab="Interval",
      layout=c(1,2),scales=list(y=list(alternating=FALSE)))
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-6-1.png) 
+![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png) 
 
